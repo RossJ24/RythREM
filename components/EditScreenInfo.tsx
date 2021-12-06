@@ -1,6 +1,8 @@
 import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
+import { DatePickerOptions } from '@react-native-community/datetimepicker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 import Colors from '../constants/Colors';
 import { MonoText } from './StyledText';
@@ -21,7 +23,9 @@ export default function EditScreenInfo({ path }: { path: string }) {
           style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
           darkColor="rgba(255,255,255,0.05)"
           lightColor="rgba(0,0,0,0.05)">
-          <MonoText>{path}</MonoText>
+          <DateTimePicker display={"spinner"} mode={"time"} value={new Date()} minuteInterval={30}>
+
+          </DateTimePicker>
         </View>
 
         <Text
@@ -60,6 +64,7 @@ const styles = StyleSheet.create({
   codeHighlightContainer: {
     borderRadius: 3,
     paddingHorizontal: 4,
+    width: 300
   },
   getStartedText: {
     fontSize: 17,
