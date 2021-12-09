@@ -2,13 +2,14 @@ import * as React from 'react';
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text } from "react-native"
 
-export const HollowButton = (props: { buttontext: String }) => {
+export const HollowButton = (props: { buttontext: String, callback?:CallableFunction }) => {
     const [parentPressed, setparentPressed] = useState(false);
     return (
         <Pressable
             style={({ pressed }) => pressed ? styles.pressedbutton : styles.unpressedbutton}
             onPressIn={() => setparentPressed(true)}
             onPressOut={() => setparentPressed(false)}
+            onPress={() => props.callback?.()}
         >
             <Text
                 style={ parentPressed ? styles.pressedbuttontext : styles.unpressedbuttontext}

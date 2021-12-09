@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import { Text, View } from '../components/Themed';
 import { Dimensions } from 'react-native';
 
-export const ReportCard = (props: { title: String, metric: String, value: number }) => {
+export const ReportCard = (props: { title: String, metric: String, value: number | string  | null}) => {
     return (
         <View style={styles.reportcardcontainer}>
             <Text style={styles.title}>
