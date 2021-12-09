@@ -103,8 +103,10 @@ export const getBestWaketime = (sleepEntries: Array<SleepEntry>) => {
 }
 
 const computeDuration = (sleepHour: number, wakeHour: number) => {
+    if(sleepHour > 12){
+        wakeHour += 24;
+    }
     const hours1 = Math.abs(wakeHour - sleepHour);
-    const hours2 = Math.abs(sleepHour - wakeHour);
     const hours = Math.min(hours1, hours2);
     return hours;
 }
