@@ -35,17 +35,17 @@ export default function ReportsScreen({ navigation }: RootTabScreenProps<'TabOne
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <View>
         <Text>
-          Based on you recent sleeping habits,
+          Based on your recent sleeping habits,
         </Text>
         <Text>
-          this is how you should sleep tonight.
+          this is how much sleep you need to make up.
         </Text>
       </View>
 
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <ReportCard
         title={"Accumulated Sleep Debt"}
-        metric={"Time (Approximate)"}
+        metric={"Hours (Approximate)"}
         value={getAccumulatedSleepDebt(sleepEntries, age)}
       />
     </View>

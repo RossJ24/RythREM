@@ -54,15 +54,16 @@ const TIME_STRS = [
 ]
 
 export const getBestDuration = (sleepEntries: Array<SleepEntry>) => {
-    const vals = Array<number>(12);
+    const vals = Array<number>(13);
     for (let i = 0; i < vals.length; ++i) {
         vals[i] = 0;
     }
     for (let i = 0; i < sleepEntries.length; ++i) {
         const sleepHour = sleepEntries[i].sleepTime.getHours();
         const wakeHour = sleepEntries[i].wakeTime.getHours();
-        const hours = computeDuration(sleepHour, wakeHour);
-        vals[hours % 12] += sleepEntries[i].quality;
+        let hours = computeDuration(sleepHour, wakeHour);
+        hours = hours <= 12 ? hours : hour % 12;
+        vals[hours] += sleepEntries[i].quality;
     }
     const max = Math.max.apply(null, vals);
     return vals.indexOf(max);
@@ -106,8 +107,7 @@ const computeDuration = (sleepHour: number, wakeHour: number) => {
     if(sleepHour > 12){
         wakeHour += 24;
     }
-    const hours1 = Math.abs(wakeHour - sleepHour);
-    const hours = Math.min(hours1, hours2);
+    const hours = Math.abs(wakeHour - sleepHour);
     return hours;
 }
 

@@ -10,6 +10,5 @@ const APPSTATE = {
     setAge: (newage: number) => { },
     sleepEntries: Array<SleepEntry>(),
     setSleepEntries: (newEntry: Array<SleepEntry>) => { },
-
 }
 export const AppContext = React.createContext(APPSTATE);

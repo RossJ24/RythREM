@@ -17,7 +17,7 @@ export const SignupModal = () => {
                 <Text style={styles.title}>Hi!</Text>
                 <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
 
-                <Text style={styles.title}>Welcome to RythRem</Text>
+                <Text style={styles.title}>Welcome to <Text style={styles.appname}>RythRem</Text></Text>
                 <Text >Please enter the information below.</Text>
                 <TextInput
                     value={name.toString()}
@@ -61,5 +61,8 @@ const styles = StyleSheet.create({
         width: "80%",
         height: "10%",
         textAlign: "center",
+    },
+    appname: {
+        color: "mediumslateblue"
     }
 });

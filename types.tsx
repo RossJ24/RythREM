@@ -39,3 +39,10 @@ export type SleepEntry = {
   sleepTime: Date,
   wakeTime: Date,
 }
+
+export type APP_STATE = {
+  loggedin: boolean,
+  name: string,
+  age: number,
+  sleepEntries: Array<SleepEntry>,
+}
